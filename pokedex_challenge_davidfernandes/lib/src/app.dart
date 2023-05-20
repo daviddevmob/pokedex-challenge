@@ -35,6 +35,7 @@ class MyApp extends StatelessWidget {
           name: '/home/poke-details',
           page: () => DetailsScreen(),
           binding: PokedexBinding(),
+          transitionDuration: Duration(milliseconds: 700),
           transition: Transition.noTransition,
         ),
       ],

@@ -19,8 +19,8 @@ class PokemonModel {
           .toList(),
       wight: double.parse(json["weight"].toString()),
       height: double.parse(json["height"].toString()),
-      moves: (json["moves"] as List)
-          .map((e) => e["move"]["name"].toString())
+      moves: (json["abilities"] as List)
+          .map((e) => e["ability"]["name"].toString())
           .toList(),
       description: "",
       baseStats: PokemonBaseStatsModel.fromJson(json),

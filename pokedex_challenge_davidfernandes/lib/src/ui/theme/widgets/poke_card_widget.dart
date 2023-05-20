@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:pokedex_challenge_davidfernandes/src/controllers/pokedex_controller.dart';
 import 'package:pokedex_challenge_davidfernandes/src/models/pokemon_model.dart';
 import 'package:pokedex_challenge_davidfernandes/src/resources/extractor.dart';
 import 'package:pokedex_challenge_davidfernandes/src/ui/theme/colors.dart';
@@ -13,14 +14,17 @@ class PokeCardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final PokedexController controller = Get.find();
     return GestureDetector(
-      onTap: () {
-        Get.toNamed(
-          '/home/poke-details',
-          arguments: {
-            'id': pokemonModel.id,
-          },
-        );
+      onTap: () async {
+        PokemonModel? pokemon =
+            await controller.getPokemonModel(id: pokemonModel.id);
+        if (pokemon != null) {
+          Get.toNamed(
+            '/home/poke-details',
+            arguments: pokemon,
+          );
+        }
       },
       child: Container(
         height: 108,
@@ -57,10 +61,13 @@ class PokeCardWidget extends StatelessWidget {
                         color: PokeColors.greyMedium,
                       ),
                     ),
-                    CachedNetworkImage(
-                      imageUrl: pokemonModel.image!,
-                      height: 70,
-                      width: 70,
+                    Hero(
+                      tag: pokemonModel.id,
+                      child: CachedNetworkImage(
+                        imageUrl: pokemonModel.image!,
+                        height: 70,
+                        width: 70,
+                      ),
                     ),
                     Text(
                       pokemonModel.name.capitalizeFirst!,
