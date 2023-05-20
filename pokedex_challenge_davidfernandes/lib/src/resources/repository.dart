@@ -5,4 +5,6 @@ class Repository {
   final PokedexApiProvider pokedexApiProvider = PokedexApiProvider();
   Future<List<PokemonSimpleResult>> fetchPokemons({required int offSet}) =>
       pokedexApiProvider.getPokemons(offSet: offSet);
+  Future<PokemonModel?> fetchPokemonModel({required int id}) =>
+      pokedexApiProvider.getPokemonDetails(id: id);
 }

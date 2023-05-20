@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
           transition: Transition.noTransition,
         ),
         GetPage(
-          name: '/home/:pokename',
+          name: '/home/poke-details',
           page: () => DetailsScreen(),
           binding: PokedexBinding(),
           transition: Transition.noTransition,

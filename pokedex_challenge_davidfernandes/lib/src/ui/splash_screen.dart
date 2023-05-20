@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:lottie/lottie.dart';
 import 'package:pokedex_challenge_davidfernandes/src/controllers/pokedex_controller.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -13,8 +14,10 @@ class _SplashScreenState extends State<SplashScreen> {
   final PokedexController pokedexController = Get.find();
 
   getInitialData() async {
-    await pokedexController.getNewPokemons();
-    Get.toNamed('/home');
+    Future.delayed(Duration(seconds: 2)).then((value) async {
+      await pokedexController.getNewPokemons();
+      Get.offNamed('/home');
+    });
   }
 
   @override
@@ -26,8 +29,23 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Text("Load"),
+      body: Stack(
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets/backgroud_splash.jpg'),
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.all(40),
+              child: Lottie.asset('assets/lottie/pokeball.json'),
+            ),
+          ),
+        ],
       ),
     );
   }

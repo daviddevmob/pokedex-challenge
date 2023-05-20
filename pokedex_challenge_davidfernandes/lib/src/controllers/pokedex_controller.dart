@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:pokedex_challenge_davidfernandes/src/models/pokemon_model.dart';
+import 'package:pokedex_challenge_davidfernandes/src/resources/extractor.dart';
 import 'package:pokedex_challenge_davidfernandes/src/resources/repository.dart';
 
 class PokedexController extends GetxController {
@@ -12,18 +13,19 @@ class PokedexController extends GetxController {
     pokemons.addAll(
       newPokemons.map(
         (e) {
-          String id = e.url.substring(10, 0);
           return PokemonModel(
             name: e.name,
-            id: 1,
+            id: int.parse(PokeExtractor.getId(e.url)),
+            image: PokeExtractor.getImageUrl(e.url),
           );
         },
       ),
     );
-    syncPokemons();
+    pokemons.refresh();
   }
 
-  syncPokemons() async {
-    pokemons.refresh();
+  getPokemonModel({required int id}) async {
+    PokemonModel? result = await repository.fetchPokemonModel(id: id);
+    return result;
   }
 }
