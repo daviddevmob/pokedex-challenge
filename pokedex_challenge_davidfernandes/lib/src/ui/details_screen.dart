@@ -9,6 +9,7 @@ import 'package:pokedex_challenge_davidfernandes/src/models/pokemon_model.dart';
 import 'package:pokedex_challenge_davidfernandes/src/resources/extractor.dart';
 import 'package:pokedex_challenge_davidfernandes/src/ui/theme/colors.dart';
 import 'package:pokedex_challenge_davidfernandes/src/ui/theme/font_style.dart';
+import 'package:pokedex_challenge_davidfernandes/src/ui/theme/widgets/poke_about_base_stats_widget.dart';
 import 'dart:math' as math;
 
 import 'package:pokedex_challenge_davidfernandes/src/ui/theme/widgets/poke_about_basic_infos_widget.dart';
@@ -93,9 +94,10 @@ class _DetailsScreenState extends State<DetailsScreen>
                               horizontal: 5,
                               vertical: 2,
                             ),
-                            child: Icon(
-                              CupertinoIcons.chevron_back,
+                            child: SvgPicture.asset(
+                              "assets/arrow_back.svg",
                               color: Colors.white,
+                              width: 25,
                             ),
                           ),
                         ),
@@ -143,6 +145,9 @@ class _DetailsScreenState extends State<DetailsScreen>
                                 child: Column(
                                   children: [
                                     PokeAboutBasicInfos(
+                                      pokemonModel: pokemonModel,
+                                    ),
+                                    PokeAboutBaseStatsWidget(
                                       pokemonModel: pokemonModel,
                                     ),
                                   ],

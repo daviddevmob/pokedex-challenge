@@ -103,6 +103,18 @@ class PokeAboutBasicInfos extends StatelessWidget {
               ],
             ),
           ),
+          SizedBox(
+            height: 15,
+          ),
+          Text(
+            "There is a plant seed on its back right from the day this Pokémon is born. The seed slowly grows larger.",
+            style: PokeTextStyle.body3Regular.copyWith(
+              color: PokeColors.greyDark,
+            ),
+          ),
+          SizedBox(
+            height: 15,
+          ),
         ],
       ),
     );

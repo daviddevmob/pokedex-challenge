@@ -14,7 +14,7 @@ class _SplashScreenState extends State<SplashScreen> {
   final PokedexController pokedexController = Get.find();
 
   getInitialData() async {
-    Future.delayed(Duration(seconds: 2)).then((value) async {
+    Future.delayed(Duration(milliseconds: 1500)).then((value) async {
       await pokedexController.getNewPokemons();
       Get.offNamed('/home');
     });
@@ -34,9 +34,9 @@ class _SplashScreenState extends State<SplashScreen> {
           Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/backgroud_splash.jpg'),
-                fit: BoxFit.cover,
-              ),
+                  image: AssetImage('assets/backgroud_splash.jpg'),
+                  fit: BoxFit.cover,
+                  opacity: .5),
             ),
           ),
           Center(
