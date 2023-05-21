@@ -1,11 +1,11 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:pokedex_challenge_davidfernandes/src/models/pokemon_model.dart';
-import 'package:pokedex_challenge_davidfernandes/src/ui/theme/colors.dart';
-import 'package:pokedex_challenge_davidfernandes/src/ui/theme/font_style.dart';
+import 'package:pokedex_challenge_davidfernandes/src/theme/font_style.dart';
+
+import '../../colors.dart';
+
 
 class PokeAboutBasicInfos extends StatelessWidget {
   final PokemonModel pokemonModel;
@@ -21,19 +21,20 @@ class PokeAboutBasicInfos extends StatelessWidget {
             mainAxisSize: MainAxisSize.max,
             children: pokemonModel.types!
                 .map((e) => Container(
-                      height: 20,
+                      height: 22,
                       margin: EdgeInsets.only(
                         right: 10,
                       ),
-                      child: Text(
-                        e.capitalizeFirst!,
-                        style: PokeTextStyle.subtitle3Bold.copyWith(
-                          color: PokeColors.greyWhite,
+                      child: Center(
+                        child: Text(
+                          e.capitalizeFirst!,
+                          style: PokeTextStyle.subtitle3Bold.copyWith(
+                            color: PokeColors.greyWhite,
+                          ),
                         ),
                       ),
                       padding: EdgeInsets.symmetric(
                         horizontal: 8,
-                        vertical: 2,
                       ),
                       decoration: BoxDecoration(
                         color: PokeColors.getColorByPokeType(
@@ -61,7 +62,6 @@ class PokeAboutBasicInfos extends StatelessWidget {
             height: 15,
           ),
           Container(
-            height: 48,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
@@ -172,7 +172,7 @@ class PokeCardMeasureWidget extends StatelessWidget {
               physics: ScrollPhysics(),
               shrinkWrap: true,
               itemBuilder: (context, index) => Text(
-                moves![index],
+                moves![index].capitalizeFirst!.replaceAll('-', " "),
                 textAlign: TextAlign.center,
                 style: PokeTextStyle.body3Regular.copyWith(
                   color: PokeColors.greyDark,

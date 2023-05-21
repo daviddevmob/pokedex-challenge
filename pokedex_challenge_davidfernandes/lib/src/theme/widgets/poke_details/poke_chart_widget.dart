@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex_challenge_davidfernandes/src/models/pokemon_model.dart';
-import 'package:pokedex_challenge_davidfernandes/src/ui/theme/colors.dart';
-import 'package:pokedex_challenge_davidfernandes/src/ui/theme/font_style.dart';
+import 'package:pokedex_challenge_davidfernandes/src/theme/font_style.dart';
 import 'package:simple_animation_progress_bar/simple_animation_progress_bar.dart';
+
+import '../../colors.dart';
+
 
 class PokeCustomChartBarWidget extends StatelessWidget {
   final PokemonBaseStatsModel baseStatsModel;
@@ -16,40 +18,42 @@ class PokeCustomChartBarWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        child: Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        Container(
-          height: 96,
-          child: PokeChardBarTitlesWidget(
-            color: color,
-            titles: ["HP", "ATK", "DEF", "SATK", "SDEF", "SPD"],
+        child: IntrinsicHeight(
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            child: PokeChardBarTitlesWidget(
+              color: color,
+              titles: ["HP", "ATK", "DEF", "SATK", "SDEF", "SPD"],
+            ),
           ),
-        ),
-        Container(
-          width: 1,
-          height: 96,
-          margin: EdgeInsets.symmetric(
-            horizontal: 8,
+          Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: 8,
+            ),
+            child: VerticalDivider(
+              width: 1,
+              color: PokeColors.greyLight,
+              thickness: 2,
+            ),
           ),
-          color: PokeColors.greyLight,
-        ),
-        Container(
-          height: 96,
-          child: PokeChardBarValuesWidget(
-            values: [
-              baseStatsModel.hp,
-              baseStatsModel.atk,
-              baseStatsModel.def,
-              baseStatsModel.satk,
-              baseStatsModel.sdef,
-              baseStatsModel.spd,
-            ],
-            color: color,
+          Container(
+            child: PokeChardBarValuesWidget(
+              values: [
+                baseStatsModel.hp,
+                baseStatsModel.atk,
+                baseStatsModel.def,
+                baseStatsModel.satk,
+                baseStatsModel.sdef,
+                baseStatsModel.spd,
+              ],
+              color: color,
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     ) /* Column(
         children: [
           PokeChardBarWidget(
@@ -72,7 +76,7 @@ class PokeChardBarTitlesWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: titles
           .map((e) => Text(
                 e,
@@ -113,10 +117,10 @@ class PokeChardBarValuesWidget extends StatelessWidget {
                 ),
                 SimpleAnimationProgressBar(
                   height: 4,
-                  width: 265,
+                  width: MediaQuery.of(context).size.width * .665,
                   backgroundColor: color.withOpacity(.2),
                   foregrondColor: color,
-                  ratio: (e / 400) > 1 ? 1 : (e / 400),
+                  ratio: (e / 200) > 1 ? 1 : (e / 200),
                   direction: Axis.horizontal,
                   curve: Curves.fastLinearToSlowEaseIn,
                   duration: Duration(seconds: 6),

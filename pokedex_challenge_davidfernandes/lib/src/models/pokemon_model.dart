@@ -8,10 +8,13 @@ class PokemonModel {
   List<String>? moves;
   String? description;
   PokemonBaseStatsModel? baseStats;
+  String? specie;
+  List<PokemonModel>? others;
 
   factory PokemonModel.fromJson(Map<String, dynamic> json) {
     return PokemonModel(
       id: json["id"],
+      others: [],
       name: json["forms"][0]["name"],
       image: json["sprites"]["other"]["official-artwork"]["front_default"],
       types: (json["types"] as List)
@@ -37,6 +40,8 @@ class PokemonModel {
     this.moves,
     this.description,
     this.baseStats,
+    this.specie,
+    this.others,
   });
 }
 

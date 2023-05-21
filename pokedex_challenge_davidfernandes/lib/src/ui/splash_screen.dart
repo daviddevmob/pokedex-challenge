@@ -34,15 +34,16 @@ class _SplashScreenState extends State<SplashScreen> {
           Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage('assets/backgroud_splash.jpg'),
-                  fit: BoxFit.cover,
-                  opacity: .5),
+                image: AssetImage('assets/backgroud_splash.jpg'),
+                fit: BoxFit.cover,
+                opacity: 1,
+              ),
             ),
           ),
           Center(
-            child: Padding(
-              padding: const EdgeInsets.all(40),
-              child: Lottie.asset('assets/lottie/pokeball.json'),
+            child: Lottie.asset(
+              'assets/lottie/pokeball.json',
+              height: MediaQuery.of(context).size.height * .15,
             ),
           ),
         ],

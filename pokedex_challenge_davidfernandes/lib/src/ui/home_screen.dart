@@ -2,12 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:pokedex_challenge_davidfernandes/src/controllers/pokedex_controller.dart';
-import 'package:pokedex_challenge_davidfernandes/src/ui/theme/colors.dart';
-import 'package:pokedex_challenge_davidfernandes/src/ui/theme/font_style.dart';
+import 'package:pokedex_challenge_davidfernandes/src/theme/font_style.dart';
 
-import 'theme/widgets/poke_card_widget.dart';
+import '../theme/colors.dart';
+import '../theme/widgets/poke_card_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -35,37 +34,27 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: PokeColors.identity,
-      appBar: PreferredSize(
-        preferredSize: Size(
-          MediaQuery.of(context).size.width,
-          Get.statusBarHeight,
-        ),
-        child: SafeArea(
-          child: Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: 16,
-              vertical: 10,
+      appBar: AppBar(
+        backgroundColor: PokeColors.identity,
+        elevation: 0,
+        title: Row(
+          children: [
+            SvgPicture.asset(
+              "assets/pokeball.svg",
+              color: Colors.white,
+              width: 24,
+              height: 24,
             ),
-            child: Row(
-              children: [
-                SvgPicture.asset(
-                  "assets/pokeball.svg",
-                  color: Colors.white,
-                  width: 24,
-                  height: 24,
-                ),
-                SizedBox(
-                  width: 16,
-                ),
-                Text(
-                  "Pokédex",
-                  style: PokeTextStyle.headlineBold.copyWith(
-                    color: PokeColors.greyWhite,
-                  ),
-                )
-              ],
+            SizedBox(
+              width: 16,
             ),
-          ),
+            Text(
+              "Pokédex",
+              style: PokeTextStyle.headlineBold.copyWith(
+                color: PokeColors.greyWhite,
+              ),
+            )
+          ],
         ),
       ),
       body: SafeArea(
@@ -91,15 +80,17 @@ class _HomeScreenState extends State<HomeScreen> {
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 3,
                 childAspectRatio: 104 / 108,
-                crossAxisSpacing: 8,
-                mainAxisSpacing: 8,
+                crossAxisSpacing: 4,
+                mainAxisSpacing: 4,
+                mainAxisExtent: MediaQuery.of(context).size.width / 3,
               ),
               shrinkWrap: true,
               controller: _scrollController,
               physics: ScrollPhysics(),
               itemBuilder: (context, index) {
                 return PokeCardWidget(
-                    pokemonModel: pokedexController.pokemons[index]);
+                  pokemonModel: pokedexController.pokemons[index],
+                );
               },
             ),
           );

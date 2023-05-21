@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex_challenge_davidfernandes/src/models/pokemon_model.dart';
-import 'package:pokedex_challenge_davidfernandes/src/ui/theme/colors.dart';
-import 'package:pokedex_challenge_davidfernandes/src/ui/theme/font_style.dart';
-import 'package:pokedex_challenge_davidfernandes/src/ui/theme/widgets/poke_chart_widget.dart';
+import 'package:pokedex_challenge_davidfernandes/src/theme/font_style.dart';
+import '../../colors.dart';
+import 'poke_chart_widget.dart';
 
 class PokeAboutBaseStatsWidget extends StatelessWidget {
   final PokemonModel pokemonModel;
@@ -36,4 +36,3 @@ class PokeAboutBaseStatsWidget extends StatelessWidget {
     );
   }
 }
-

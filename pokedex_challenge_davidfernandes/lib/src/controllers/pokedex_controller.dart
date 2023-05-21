@@ -28,4 +28,5 @@ class PokedexController extends GetxController {
     PokemonModel? result = await repository.fetchPokemonModel(id: id);
     return result;
   }
+
 }

@@ -7,4 +7,6 @@ class Repository {
       pokedexApiProvider.getPokemons(offSet: offSet);
   Future<PokemonModel?> fetchPokemonModel({required int id}) =>
       pokedexApiProvider.getPokemonDetails(id: id);
+  Future<List<PokemonModel>> fetchEvolutions({required PokemonModel pokemon}) =>
+      pokedexApiProvider.getEvolutions(pokemon: pokemon);
 }

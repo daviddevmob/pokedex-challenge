@@ -39,10 +39,68 @@ class PokedexApiProvider implements PokedexApiInterface {
   Future<PokemonModel?> getPokemonDetails({required int id}) async {
     try {
       Response response = await dio.get(baseUrl + "pokemon/$id/");
-      return PokemonModel.fromJson(response.data);
+      var pokemon = PokemonModel.fromJson(response.data);
+      return pokemon;
     } catch (e) {
       print(e);
       return null;
+    }
+  }
+
+  @override
+  Future<List<PokemonModel>> getEvolutions(
+      {required PokemonModel pokemon}) async {
+    try {
+      List<PokemonModel> pokemons = [];
+      String urlEvolutions =
+          (await dio.get(baseUrl + "pokemon-species/${pokemon.name}"))
+              .data["evolution_chain"]["url"];
+      Response evolutions = await dio.get(urlEvolutions);
+      String? stage1Name;
+      String? stage2Name;
+      String? stage3Name;
+      try {
+        stage1Name = evolutions.data["chain"]["species"]["name"];
+      } catch (e) {}
+      try {
+        stage2Name =
+            evolutions.data["chain"]["evolves_to"][0]["species"]["name"];
+      } catch (e) {}
+      try {
+        stage3Name = evolutions.data["chain"]["evolves_to"][0]["evolves_to"][0]
+            ["species"]["name"];
+      } catch (e) {}
+      if (stage1Name != pokemon.name && stage1Name != null) {
+        Response response = await dio.get(baseUrl + "pokemon/$stage1Name");
+        var pokeStage1 = PokemonModel.fromJson(response.data);
+        pokemons.add(pokeStage1);
+      } else {
+        if (stage1Name != null) {
+          pokemons.add(pokemon);
+        }
+      }
+      if (stage2Name != pokemon.name && stage2Name != null) {
+        Response response = await dio.get(baseUrl + "pokemon/$stage2Name");
+        var pokeStage2 = PokemonModel.fromJson(response.data);
+        pokemons.add(pokeStage2);
+      } else {
+        if (stage2Name != null) {
+          pokemons.add(pokemon);
+        }
+      }
+      if (stage3Name != pokemon.name && stage3Name != null) {
+        Response response = await dio.get(baseUrl + "pokemon/$stage3Name");
+        var pokeStage3 = PokemonModel.fromJson(response.data);
+        pokemons.add(pokeStage3);
+      } else {
+        if (stage3Name != null) {
+          pokemons.add(pokemon);
+        }
+      }
+      return pokemons;
+    } catch (e) {
+      print(e);
+      return <PokemonModel>[];
     }
   }
 }
