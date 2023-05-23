@@ -97,6 +97,8 @@ Com a liberdade de escolher quais bibliotecas seriam utilizadas, neste contexto 
 
 [Mockito](https://pub.dev/packages/mockito): Utilizado aqui para fazer testes unitários e subir uma instância fake da PokedexApiProvider. Os testes de Widget infelizmente não consegui terminar devido ao meu tempo disponível, mas tem um código comentado em test/widget_test.
 
+Outras bibliotecas foram utilizadas em questões de layout e services, mas estas acima merecem um destaque pois estas estão mais relacionadas ao core de performance do projeto.
+
 Desafios Encontrados
 =================
 
