@@ -68,13 +68,16 @@ Com a liberdade de escolher quais bibliotecas seriam utilizadas, neste contexto 
 
 [GetX](https://pub.dev/packages/get): Apesar do GetX pecar em sua documentação e estar a uma ano sem atualizações, o que o torna bem preocupante, utilizei neste projeto por me proporcionar agilidade em gerenciamento de estado, injeção de dependência e gerenciamento de rotas. Foi instanciado um blind global PokedexBinding, um controller global PokedexController e um controller local PokedexDetailsController para a tela de detalhes do pokemon, este ultimo é descartado ao sair da tela de detalhes.
 
-[GetStorage](https://pub.dev/packages/get_storage): Todas as chamadas de api que acontecem no PokedexApiProvider passam pelo GetStorage para verificar se existe um cache para esta rota. Código:
+[GetStorage](https://pub.dev/packages/get_storage): Todas as chamadas de api que acontecem no PokedexApiProvider passam pelo GetStorage para verificar se existe um cache para esta rota, podendo ou não utilizado dependendo do parametro useCache. Código:
 ```
- Future<Map<String, dynamic>?> getCache({required String path}) async {
+  Future<Map<String, dynamic>?> getCache({
+    required String path,
+    bool useCache = true,
+  }) async {
     try {
       var localJson = await box.read(path);
       late Map<String, dynamic> result;
-      if (localJson != null) {
+      if (localJson != null && useCache) {
         result = localJson;
       } else {
         Response response = await dio.get(

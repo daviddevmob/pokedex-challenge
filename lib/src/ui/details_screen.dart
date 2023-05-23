@@ -34,7 +34,6 @@ class _DetailsScreenState extends State<DetailsScreen>
   void initState() {
     pokemonController.startController(
         pokemonModel: (Get.arguments as PokemonModel));
-    setState(() {});
     super.initState();
   }
 
