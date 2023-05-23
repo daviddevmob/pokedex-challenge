@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:pokedex_challenge_davidfernandes/src/controllers/pokedex_controller.dart';
 import 'package:pokedex_challenge_davidfernandes/src/theme/font_style.dart';
+import 'package:pokedex_challenge_davidfernandes/src/theme/responsive.dart';
 
 import '../theme/colors.dart';
 import '../theme/widgets/poke_card_widget.dart';

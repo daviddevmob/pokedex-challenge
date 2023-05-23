@@ -1,6 +1,6 @@
 # pokedex_challenge_davidfernandes
 
-A new Flutter project.
+Flutter Project 
 
 ## Getting Started
 

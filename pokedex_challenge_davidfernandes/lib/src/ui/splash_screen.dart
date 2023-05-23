@@ -4,7 +4,9 @@ import 'package:lottie/lottie.dart';
 import 'package:pokedex_challenge_davidfernandes/src/controllers/pokedex_controller.dart';
 
 class SplashScreen extends StatefulWidget {
-  const SplashScreen({super.key});
+  const SplashScreen({
+    super.key,
+  });
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();
@@ -44,6 +46,7 @@ class _SplashScreenState extends State<SplashScreen> {
             child: Lottie.asset(
               'assets/lottie/pokeball.json',
               height: MediaQuery.of(context).size.height * .15,
+              repeat: false,
             ),
           ),
         ],

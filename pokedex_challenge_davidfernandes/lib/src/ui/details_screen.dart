@@ -9,6 +9,7 @@ import 'package:pokedex_challenge_davidfernandes/src/controllers/pokemon_details
 import 'package:pokedex_challenge_davidfernandes/src/models/pokemon_model.dart';
 import 'package:pokedex_challenge_davidfernandes/src/resources/extractor.dart';
 import 'package:pokedex_challenge_davidfernandes/src/theme/font_style.dart';
+import 'package:pokedex_challenge_davidfernandes/src/theme/responsive.dart';
 import 'dart:math' as math;
 
 import '../theme/colors.dart';
@@ -188,17 +189,33 @@ class _DetailsScreenState extends State<DetailsScreen>
                                                         .value -
                                                     1;
                                               },
-                                              child: SvgPicture.asset(
-                                                "assets/back.svg",
-                                                color: Colors.white,
-                                                width: 10,
+                                              child: Container(
+                                                color: Colors.transparent,
+                                                padding: EdgeInsets.all(10),
+                                                child: SvgPicture.asset(
+                                                  "assets/back.svg",
+                                                  color: Colors.white,
+                                                  width: Responsive(context)
+                                                          .isMobile()
+                                                      ? 10
+                                                      : 20,
+                                                ),
                                               ),
                                             ),
                                           );
                                         }
-                                        return SizedBox(
-                                          height: 10,
-                                          width: 10,
+                                        return Padding(
+                                          padding: const EdgeInsets.all(10),
+                                          child: SizedBox(
+                                            height:
+                                                Responsive(context).isMobile()
+                                                    ? 10
+                                                    : 20,
+                                            width:
+                                                Responsive(context).isMobile()
+                                                    ? 10
+                                                    : 20,
+                                          ),
                                         );
                                       }),
                                       Hero(
@@ -230,17 +247,33 @@ class _DetailsScreenState extends State<DetailsScreen>
                                                         .value +
                                                     1;
                                               },
-                                              child: SvgPicture.asset(
-                                                "assets/next.svg",
-                                                color: Colors.white,
-                                                width: 10,
+                                              child: Container(
+                                                color: Colors.transparent,
+                                                padding: EdgeInsets.all(10),
+                                                child: SvgPicture.asset(
+                                                  "assets/next.svg",
+                                                  color: Colors.white,
+                                                  width: Responsive(context)
+                                                          .isMobile()
+                                                      ? 10
+                                                      : 20,
+                                                ),
                                               ),
                                             ),
                                           );
                                         }
-                                        return SizedBox(
-                                          height: 10,
-                                          width: 10,
+                                        return Padding(
+                                          padding: const EdgeInsets.all(10),
+                                          child: SizedBox(
+                                            height:
+                                                Responsive(context).isMobile()
+                                                    ? 10
+                                                    : 20,
+                                            width:
+                                                Responsive(context).isMobile()
+                                                    ? 10
+                                                    : 20,
+                                          ),
                                         );
                                       })
                                     ],
