@@ -137,7 +137,7 @@ class PokeExtractor {
 Layout e Animações
 =================
 
-A aplicação tem um layout bem simples, resolvi dar mais vida com transições Hero entre a tela HomeScreen e DetailsScreen. Além disso, coloquei o SVG da Pokeball girando no cover do Pokemon. O gráfico de Base Stats foi feito customizado pois é bem específico e não queria perder tempo procurando alguma biblioteca de chart no PubDev.
+A aplicação tem um layout tranquilo, testei em várias telas mobile, tablet(iPad air) e Web(monitor 16:9). Resolvi dar mais vida com transições Hero entre a tela HomeScreen e DetailsScreen. Além disso, coloquei o SVG da Pokeball girando no cover do Pokemon. O gráfico de Base Stats foi feito customizado pois é bem específico e não queria perder tempo procurando alguma biblioteca de chart no PubDev.
 
 Testes
 =================
