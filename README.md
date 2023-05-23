@@ -122,6 +122,6 @@ A aplicação tem um layout bem simples, resolvi dar mais vida com transições 
 Testes
 =================
 
-Foram conclúidos testes unitários para os Providers e iniciados os testes de Widgets, mas devido ao tempo não foram finalizados(estão comentados no arquivos widget.test.dart).
+Foram conclúidos testes unitários e iniciados os testes de Widgets, mas devido ao tempo não foram finalizados(estão comentados no arquivos widget.test.dart) após o termino dos layouts.
 
 
