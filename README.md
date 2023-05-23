@@ -5,11 +5,11 @@ Projeto desenvolvido para o desafio da Snapfi, utilizando o layout disponibiliza
 Tópicos
 =================
 <!--ts-->
-  * [Estrutura do projeto](#Estrutura-do-projeto)
-  * [Bibliotecas](#Bibliotecas)
-  * [Desafios Encontrados](#Desafios-Encontrados)
-  * [Layout e Animações](#Layout-e-Animações)
-  * [Testes](#Testes)
+  * [Estrutura do projeto](#estrutura-do-projeto)
+  * [Bibliotecas](#bibliotecas)
+  * [Desafios Encontrados](#desafios-encontrados)
+  * [Layout e Animações](#layout-e-animacoes)
+  * [Testes](#testes)
 <!--te-->
 
 #Estrutura do projeto
@@ -77,7 +77,7 @@ Com a liberdade de escolher quais bibliotecas seriam utilizadas, neste contexto 
 
 [Mockito](https://pub.dev/packages/mockito): Utilizado aqui para fazer testes unitários e subir uma instância fake da PokedexApiProvider. Os testes de Widget infelizmente não consegui terminar devido ao meu tempo disponível, mas tem um código comentado em test/widget_test.
 
-#Desafios-Encontrados
+#Desafios Encontrados
 
 O maior desafio encontrado foi criar um adaptador para carregar as imagens dos pokemons pela [rota principal da PokeApi](https://pokeapi.co/api/v2/pokemon?limit=20&offset=0), pois nela retorna somente o nome do pokemon e um link para seu perfil. Existem arquivos prontos - [link1](https://gist.githubusercontent.com/hungps/0bfdd96d3ab9ee20c2e572e47c6834c7/raw/pokemons.json) e [link2](https://gist.githubusercontent.com/hungps/0bfdd96d3ab9ee20c2e572e47c6834c7/raw/pokemons.json), [link3](https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokedex.json) -  no GitHub com todas as informações de todos os pokemons da PokeApi, mas eu segui as recomendações do desafio e utilizei somente a PokeApi. Identifiquei um padrão ao analisar o path da URL das imagens da PokeApi, assim criei um Extractor, localizado em Resources, onde eu extraio as informações básicas que preciso para construir a HomeScreen sem precisar chamar outra rota além da rota principal. Código:
 
@@ -111,7 +111,7 @@ class PokeExtractor {
 }
 ```
 
-#Layout-e-Animações
+#Layout e Animações
 
 A aplicação tem um layout bem simples, resolvi dar mais vida com transições Hero entre a tela HomeScreen e DetailsScreen. Além disso, coloquei o SVG da Pokeball girando no cover do Pokemon. O gráfico de Base Stats foi feito customizado pois é bem específico e não queria perder tempo procurando alguma biblioteca de chart no PubDev.
 
