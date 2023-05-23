@@ -12,7 +12,8 @@ Tópicos
   * [Testes](#testes)
 <!--te-->
 
-#Estrutura do projeto
+Estrutura do projeto
+=================
 
 O projeto foi estruturado como mostra o código abaixo:
 
@@ -42,7 +43,8 @@ O projeto foi estruturado como mostra o código abaixo:
 ├── app.dart
 ```
 
-#Bibliotecas
+Bibliotecas
+=================
 
 Com a liberdade de escolher quais bibliotecas seriam utilizadas, neste contexto escolhi utilizar GetX para agilizar a entrega dessa pequena aplicação, mas sou adepto do Bloc Pattern para projetos robustos e principalmente com escopo de equipe. Aqui serão descritas as principais bibliotecas utilizadas e o motivo de estarem no projeto:
 
@@ -111,11 +113,13 @@ class PokeExtractor {
 }
 ```
 
-#Layout e Animações
+Layout e Animações
+=================
 
 A aplicação tem um layout bem simples, resolvi dar mais vida com transições Hero entre a tela HomeScreen e DetailsScreen. Além disso, coloquei o SVG da Pokeball girando no cover do Pokemon. O gráfico de Base Stats foi feito customizado pois é bem específico e não queria perder tempo procurando alguma biblioteca de chart no PubDev.
 
-#Testes
+Testes
+=================
 
 Foram conclúidos testes unitários para os Providers e iniciados os testes de Widgets, mas devido ao tempo não foram finalizados(estão comentados no arquivos widget.test.dart).
 
