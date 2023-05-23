@@ -5,12 +5,30 @@ Projeto desenvolvido para o desafio da Snapfi, utilizando o layout disponibiliza
 Tópicos
 =================
 <!--ts-->
+  * [Como executar o projeto](#como-executar-o-projeto)
   * [Estrutura do projeto](#estrutura-do-projeto)
   * [Bibliotecas](#bibliotecas)
   * [Desafios Encontrados](#desafios-encontrados)
   * [Layout e Animações](#layout-e-animações)
   * [Testes](#testes)
 <!--te-->
+
+Como executar o projeto
+=================
+
+Para executar o projeto será necessário ter todo o ambiente flutter configurado em sua máquina, caso ainda não esteja pronto, segue o [link](https://docs.flutter.dev/get-started/install) para configuração. Após a instalação e configuração com a documentação oficial, estamos prontos para executar o projeto. Ao abrir no seu editor de código preferido e um [emulador do Android Studio](https://developer.android.com/studio/run/managing-avds?hl=pt-br) ou um [simulador do Xcode](https://blog.cod3r.com.br/configurando-o-emulador-ios/), execute os comandos:
+
+Para buscar os pacotes necessários para o projeto
+```
+flutter pub get
+```
+
+Para executar o projeto em algum emulador, ou browser, disponível. 
+```
+flutter run
+```
+
+
 
 Estrutura do projeto
 =================
