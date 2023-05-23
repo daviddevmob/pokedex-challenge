@@ -6,7 +6,6 @@ import 'package:pokedex_challenge_davidfernandes/src/theme/font_style.dart';
 
 import '../../colors.dart';
 
-
 class PokeAboutBasicInfos extends StatelessWidget {
   final PokemonModel pokemonModel;
   const PokeAboutBasicInfos({super.key, required this.pokemonModel});
@@ -101,15 +100,6 @@ class PokeAboutBasicInfos extends StatelessWidget {
                   ),
                 ),
               ],
-            ),
-          ),
-          SizedBox(
-            height: 15,
-          ),
-          Text(
-            "There is a plant seed on its back right from the day this Pokémon is born. The seed slowly grows larger.",
-            style: PokeTextStyle.body3Regular.copyWith(
-              color: PokeColors.greyDark,
             ),
           ),
           SizedBox(
