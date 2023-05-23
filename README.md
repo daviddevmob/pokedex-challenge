@@ -1,14 +1,16 @@
-#Desafio Pokédex Snapfi - David Fernandes
+<h1 align="center">Desafio Pokédex Snapfi - David Fernandes </h1>
 
 Projeto desenvolvido para o desafio da Snapfi, utilizando o layout disponibilizado através deste [link](https://www.figma.com/file/oyy40kpPCamOuJOQu1uYMo/Pok%C3%A9dex-(Community)?type=design&node-id=0-1) e utilizando a PokéApi que pode ser acessada neste [link](https://pokeapi.co/). Com a adição de uma Splash Screen, temos ao total três telas que, respectivamente, mostram: a animação de carregamento(que só busca dados uma vez), lista os pokemons com infity scroll e a ultima que mostra detalhes do pokemon e suas evoluções.
 
 Tópicos
-
-- [Estrutura do projeto](#Estrutura-do-projeto)
-- [Bibliotecas](#Bibliotecas)
-- [Desafios Encontrados](#Desafios-Encontrados)
-- [Layout e Animações](#Layout-e-Animações)
-- [Testes](#Testes)
+=================
+<!--ts-->
+  * [Estrutura do projeto](#Estrutura-do-projeto)
+  * [Bibliotecas](#Bibliotecas)
+  * [Desafios Encontrados](#Desafios-Encontrados)
+  * [Layout e Animações](#Layout-e-Animações)
+  * [Testes](#Testes)
+<!--te-->
 
 #Estrutura do projeto
 
